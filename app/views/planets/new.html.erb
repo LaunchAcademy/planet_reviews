@@ -1,0 +1,21 @@
+<% if @planet.errors.any? %>
+  <h1>Errors when saving</h1>
+  <ul>
+  <% @planet.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @planet do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :mass %>
+  <%= f.text_field :mass %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "Create Planet" %>
+<% end %>

@@ -7,8 +7,8 @@ feature "user creates a planet", %q(
   So that I can review it
 
   Acceptance Criteria:
-    [ ] I must be signed in
-    [ ] I must specify a planet name
+    [x] I must be signed in
+    [x] I must specify a planet name
     [ ] Planet name must be unique
     [ ] Planet mass is an optional field
     [ ] Description is an optional field

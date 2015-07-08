@@ -15,6 +15,7 @@ class PlanetsController < ApplicationController
 
   def show
     @planet = Planet.find(params[:id])
+    @review = @planet.reviews.build
   end
 
   protected

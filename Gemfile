@@ -27,3 +27,7 @@ group :production do
   gem 'rails_12factor'
   gem 'puma'
 end
+
+group :test do
+  gem 'email_spec'
+end

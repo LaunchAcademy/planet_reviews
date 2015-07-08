@@ -11,4 +11,11 @@ FactoryGirl.define do
     sequence(:name) { |n| "Planet near AlphaCentuari-#{n}" }
     user
   end
+
+  factory :review do
+    rating 5
+    body "Quite a nice place"
+    user
+    planet
+  end
 end

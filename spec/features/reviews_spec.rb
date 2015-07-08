@@ -5,11 +5,13 @@ feature "reviews" do
   let(:planet) { FactoryGirl.create(:planet) }
 
   scenario "user reviews a planet" do
+    ActionMailer::Base.deliveries.clear
     sign_in user
     visit planet_path(planet)
     select 5, from: "Rating"
     fill_in "Body", with: "I think I might visit there again, someday."
     click_button "Create Review"
     expect(page).to have_content("Thanks for your input!")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 end

@@ -4,8 +4,12 @@ class ReviewsController < ApplicationController
     @review = @planet.reviews.build
     @review.assign_attributes(review_params)
     @review.user = current_user
-    @review.save
-    flash[:notice] = "Thanks for your input!"
+    if @review.save
+      ReviewMailer.new_review(@planet).deliver_later
+      flash[:notice] = "Thanks for your input!"
+    else
+      flash[:notice] = "Something went wrong"
+    end
     redirect_to @planet
   end
 

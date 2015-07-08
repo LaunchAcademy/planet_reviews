@@ -4,7 +4,7 @@ feature "reviews" do
   let(:user) { FactoryGirl.create(:user) }
   let(:planet) { FactoryGirl.create(:planet) }
 
-  scenario "user reviews a planet", focus: true do
+  scenario "user reviews a planet" do
     sign_in user
     visit planet_path(planet)
     select 5, from: "Rating"

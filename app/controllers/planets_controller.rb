@@ -18,6 +18,17 @@ class PlanetsController < ApplicationController
     @review = @planet.reviews.build
   end
 
+  def index
+    if params[:q] == ''
+      flash[:notice] = 'Please specify a search phrase'
+    end
+    if params[:q].present?
+      @planets = Planet.search(params[:q])
+    else
+      @planets = Planet.all
+    end
+  end
+
   protected
   def planet_params
     params.require(:planet).permit(:name, :mass, :description)

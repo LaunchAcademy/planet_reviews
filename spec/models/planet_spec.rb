@@ -14,4 +14,21 @@ RSpec.describe Planet, type: :model do
       expect { same_planet.save! }.to raise_error
     end
   end
+
+  describe "searching" do
+    it 'matches by name' do
+      3.times { FactoryGirl.create(:planet) }
+
+      results = Planet.search(Planet.last.name)
+      expect(results).to include(Planet.last)
+    end
+
+    it 'matches by partial name' do
+      3.times { FactoryGirl.create(:planet) }
+
+      results = Planet.search(Planet.last.name[0..3])
+      binding.pry
+      expect(results).to include(Planet.last)
+    end
+  end
 end

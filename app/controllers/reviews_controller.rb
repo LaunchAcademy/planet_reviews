@@ -1,11 +1,15 @@
 class ReviewsController < ApplicationController
   def create
     @planet = Planet.find(review_params[:planet_id])
-    @review = @planet.reviews.build
-    @review.assign_attributes(review_params)
+    @review = @planet.reviews.build(review_params)
     @review.user = current_user
-    @review.save
-    flash[:notice] = "Thanks for your input!"
+
+    if @review.save
+      ReviewMailer.new_review(@review).deliver_now
+      flash[:notice] = "Thanks for your input!"
+    else
+      flash[:error] = "Something is wrong with your review."
+    end
     redirect_to @planet
   end
 

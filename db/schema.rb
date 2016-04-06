@@ -11,18 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708184914) do
+ActiveRecord::Schema.define(version: 20160406212233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "planets", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name",                       null: false
     t.text     "description"
-    t.string   "mass"
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "mass_in_kg"
+    t.integer  "user_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "diameter_in_km", default: 0
+    t.integer  "moons",          default: 0
+    t.integer  "min_temp_in_c",  default: 0
+    t.integer  "max_temp_in_c",  default: 0
   end
 
   add_index "planets", ["name"], name: "index_planets_on_name", unique: true, using: :btree

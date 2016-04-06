@@ -6,4 +6,24 @@ class User < ActiveRecord::Base
 
   has_many :planets
   has_many :reviews
+
+  class << self
+    def admin
+      return find_admin if find_admin
+      return create_admin
+    end
+
+    private
+    def find_admin
+      find_by(email: admin_email)
+    end
+
+    def create_admin
+      user = new
+      user.email = ENV["ADMIN_EMAIL"]
+      user.password = ENV["ADMIN_PASSWORD"]
+      user.save!
+      user
+    end
+  end
 end

@@ -9,6 +9,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'devise'
 gem 'foundation-rails', '~> 5.5'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -18,6 +19,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :production do

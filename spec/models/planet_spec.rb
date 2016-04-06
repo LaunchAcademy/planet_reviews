@@ -11,7 +11,7 @@ RSpec.describe Planet, type: :model do
     it "must have a unique name" do
       planet = FactoryGirl.create(:planet)
       same_planet = FactoryGirl.build(:planet, name: planet.name)
-      expect { same_planet.save! }.to raise_error
+      expect { same_planet.save! }.to raise_error ActiveRecord::RecordInvalid
     end
   end
 end

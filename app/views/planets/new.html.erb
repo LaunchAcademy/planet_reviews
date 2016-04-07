@@ -11,11 +11,23 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <%= f.label :mass %>
-  <%= f.text_field :mass %>
+  <%= f.label :diameter_in_km %>
+  <%= f.text_field :diameter_in_km %>
+
+  <%= f.label :mass_in_kg %>
+  <%= f.text_field :mass_in_kg %>
+
+  <%= f.label :moons %>
+  <%= f.text_field :moons %>
+
+  <%= f.label :min_temp_in_c %>
+  <%= f.text_field :min_temp_in_c %>
+
+  <%= f.label :max_temp_in_c %>
+  <%= f.text_field :max_temp_in_c %>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_area :description %>
 
   <%= f.submit "Create Planet" %>
 <% end %>

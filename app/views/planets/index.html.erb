@@ -1,0 +1,14 @@
+<% @planets.each do |planet| %>
+  <div class="small-12 columns">
+    <hr />
+    <div class="row">
+      <div class="small-4 columns">
+        <%= image_tag planet.image %>
+      </div>
+      <div class="small-8 columns">
+        <p>Name: <%= link_to planet.name, planet %></p>
+        <p>Description: <%= planet.description %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

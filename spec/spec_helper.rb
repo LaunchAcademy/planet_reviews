@@ -20,4 +20,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   config.full_backtrace = false
+  config.backtrace_exclusion_patterns = [/.gem/, /.rubies/]
 end

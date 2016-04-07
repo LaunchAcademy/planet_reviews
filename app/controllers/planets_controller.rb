@@ -13,6 +13,10 @@ class PlanetsController < ApplicationController
     end
   end
 
+  def index
+    @planets = Planet.limit(10)
+  end
+
   def show
     @planet = Planet.find(params[:id])
     @review = @planet.reviews.build
@@ -20,6 +24,14 @@ class PlanetsController < ApplicationController
 
   protected
   def planet_params
-    params.require(:planet).permit(:name, :mass, :description)
+    params.require(:planet).permit(
+      :name,
+      :diameter_in_km,
+      :mass_in_kg,
+      :moons,
+      :min_temp_in_c,
+      :max_temp_in_c,
+      :description
+    )
   end
 end

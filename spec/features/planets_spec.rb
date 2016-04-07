@@ -23,7 +23,7 @@ feature "user creates a planet", %q(
     visit new_planet_path
 
     fill_in "Name", with: "Mercury"
-    fill_in "Mass", with: "328.5E21 kg"
+    fill_in "Mass in kg", with: "3.285E23"
     fill_in "Description", with: "Quite a hot place"
     click_on "Create Planet"
 

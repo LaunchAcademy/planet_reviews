@@ -5,6 +5,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
+    sequence(:uid) { |n| 1000 + n }
   end
 
   factory :planet do

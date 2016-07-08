@@ -9,10 +9,12 @@ class Planet < ActiveRecord::Base
   mount_uploader :photo, PlanetPhotoUploader
 
   def image
-    if photo
-      return photo.url
+    filename = "#{name.gsub(" ", "_")}.jpg"
+    path = "#{Rails.root}/public/images/#{filename}"
+    if File.exists?(path)
+      return filename
     else
-      return "#{name.gsub(" ", "_")}.jpg"
+      return photo.url
     end
   end
 end

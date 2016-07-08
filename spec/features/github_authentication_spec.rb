@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "github authentication", focus: true do
+feature "github authentication" do
   scenario "user signs in with github" do
     user = FactoryGirl.build(:user)
     mock_omniauth(user, :github)

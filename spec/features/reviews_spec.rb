@@ -13,6 +13,5 @@ feature "reviews" do
     click_button "Create Review"
 
     expect(page).to have_content("Thanks for your input!")
-    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406233125) do
+ActiveRecord::Schema.define(version: 20160708191552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160406233125) do
     t.integer  "moons",          default: 0
     t.integer  "min_temp_in_c",  default: 0
     t.integer  "max_temp_in_c",  default: 0
+    t.string   "photo"
   end
 
   add_index "planets", ["name"], name: "index_planets_on_name", unique: true, using: :btree

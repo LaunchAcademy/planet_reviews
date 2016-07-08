@@ -6,7 +6,13 @@ class Planet < ActiveRecord::Base
   validates :name, uniqueness: true
   validates :user, presence: true
 
+  mount_uploader :photo, PlanetPhotoUploader
+
   def image
-    "#{name.gsub(" ", "_")}.jpg"
+    if photo
+      return photo.url
+    else
+      return "#{name.gsub(" ", "_")}.jpg"
+    end
   end
 end

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
+gem 'carrierwave'
 gem 'devise'
 gem 'foundation-rails', '~> 5.5'
 gem 'jquery-rails'

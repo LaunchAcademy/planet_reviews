@@ -31,7 +31,8 @@ class PlanetsController < ApplicationController
       :moons,
       :min_temp_in_c,
       :max_temp_in_c,
-      :description
+      :description,
+      :photo
     )
   end
 end

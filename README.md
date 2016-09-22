@@ -5,7 +5,7 @@ Rails application initialized from the [make_it_so](https://github.com/LaunchAca
 ## Getting Started
 
 ```
-$ git clone git@github.com:LaunchAcademy/planet_reviews.git
+$ git clone https://github.com/LaunchAcademy/planet_reviews.git
 $ cp .env.example .env
 $ bundle
 $ rake db:create db:migrate db:seed

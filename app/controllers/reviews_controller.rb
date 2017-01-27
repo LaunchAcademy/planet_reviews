@@ -5,7 +5,6 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
-      ReviewMailer.new_review(@review).deliver_later
       flash[:notice] = "Thanks for your input!"
     else
       flash[:error] = "Something is wrong with your review."

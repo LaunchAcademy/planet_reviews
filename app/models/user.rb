@@ -23,15 +23,23 @@ class User < ActiveRecord::Base
 
     private
     def find_admin
-      find_by(email: ENV["ADMIN_EMAIL"])
+      find_by(email: admin_email)
     end
 
     def create_admin
       user = new
-      user.email = ENV["ADMIN_EMAIL"]
-      user.password = ENV["ADMIN_PASSWORD"]
+      user.email = admin_email
+      user.password = admin_password
       user.save!
       user
+    end
+
+    def admin_email
+      ENV["ADMIN_EMAIL"] || "definitelyreal@launchacademy.com"
+    end
+
+    def admin_password
+      ENV["ADMIN_PASSWORD"] || "longenoughpassword"
     end
   end
 end
